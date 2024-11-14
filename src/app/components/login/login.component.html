@@ -1,1 +1,30 @@
-<p>login works!</p>
+<form class="container mt-5 p-4 border rounded" style="max-width: 400px;" #formLogin="ngForm" (submit)="login()">
+    <h2 class="text-center mb-4">Iniciar Sesión</h2>
+    <div class="mb-3">
+        <label for="username" class="form-label">Nombre de Usuario</label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="username" 
+            placeholder="Ingresa tu nombre de usuario" 
+            #username 
+            name="username"
+            value="REY"
+            required
+        >
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input 
+            type="password" 
+            class="form-control" 
+            id="password" 
+            placeholder="Ingresa tu contraseña" 
+            #password 
+            name="password"
+            value="7839"
+            required
+        >
+    </div>
+    <button class="btn btn-primary w-100">Iniciar Sesión</button>
+</form>
