@@ -15,19 +15,46 @@ export class EmpleadosService {
       'username': username,
       'password': password 
     };
+    const headers = {
+      'Content-Type': 'application/json'
+    }
     const url = environment.urlEmpleados + endpoint;
 
-    return axios.post(url, json, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
+    return new Promise((resolve)=>{
+      axios.post(url, json, {headers: headers})
+      .then(response => {
+        resolve(response.data.response);
+      })
     })
-    .then(response => {
-      console.log(response.data.response)
-      return response.data.response;
+  }
+
+  getPerfil(): Promise<any> {
+    const endpoint = 'api/empleados/perfilempleado';
+    const url = environment.urlEmpleados + endpoint;
+    const headers = {
+      'Authorization': localStorage.getItem('bearer_token'),
+    };
+
+    return new Promise((resolve)=>{
+      axios.get(url, { headers: headers })
+      .then(response => {
+        resolve(response.data);
+      })
     })
-    .catch(error => {
-      console.error('Error en el login:', error);
-    });
+  }
+
+  getSubordinados(): Promise<any>{
+    return new Promise((resolve)=>{
+      const endpoint = 'api/empleados/subordinados';
+      const url = environment.urlEmpleados + endpoint;
+      const headers = {
+        'Authorization': localStorage.getItem('bearer_token'),
+      };
+
+      axios.get(url, { headers: headers })
+      .then(response => {
+          resolve(response.data);
+      })
+    })
   }
 }

@@ -28,14 +28,11 @@ export class LoginComponent implements OnInit {
       this.username.nativeElement.value, 
       this.password.nativeElement.value
     )
-    .then(token => {
-      if(token !== undefined){
-        localStorage.setItem('bearer_token', 'Bearer ' + token);
+    .then(response => {
+      if(response !== undefined){
+        localStorage.setItem('bearer_token', 'Bearer ' + response);
         this._router.navigate(['/']);
       }
-    })
-    .catch(error => {
-      console.error('Error al obtener el token:', error);
     });
   }
 }

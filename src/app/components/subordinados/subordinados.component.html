@@ -1,1 +1,28 @@
-<p>subordinados works!</p>
+<div class="m-3">
+    <h2>Subordinados</h2>
+    <div *ngIf="subordinados.length === 0">
+        <p>No se encontraron subordinados.</p>
+    </div>
+    
+    <table class="table table-striped" v-else>
+        <thead>
+            <tr>
+                <th>ID Empleado</th>
+                <th>Apellido</th>
+                <th>Oficio</th>
+                <th>Salario</th>
+                <th>Director</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let subordinado of subordinados">
+                <td>{{ subordinado.idEmpleado }}</td>
+                <td>{{ subordinado.apellido }}</td>
+                <td>{{ subordinado.oficio }}</td>
+                <td>{{ subordinado.salario }}</td>
+                <td>{{ subordinado.director }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-secondary mt-3" [routerLink]="['/']">Volver a Inicio</button>
+</div>

@@ -1,1 +1,15 @@
-<p>perfil works!</p>
+<div class="m-3">
+    <div class="card w-50">
+        <div class="card-header pt-3">
+            <h3 class="card-title">Información del Empleado</h3>
+        </div>
+        <div class="card-body pb-0">
+            <p><strong>ID:</strong> {{ empleado.idEmpleado }}</p>
+            <p><strong>Apellido:</strong> {{ empleado.apellido }}</p>
+            <p><strong>Oficio:</strong> {{ empleado.oficio }}</p>
+            <p><strong>Salario:</strong> {{ empleado.salario }}€</p>
+            <p><strong>Director:</strong> {{ empleado.director }}</p>
+        </div>
+    </div>
+    <button class="btn btn-secondary mt-3" [routerLink]="['/']">Volver a Inicio</button>
+</div>
